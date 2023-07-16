@@ -88,9 +88,12 @@ const LetterPlaceholder = ({guess, letter, index}: LetterPlaceholderProps) => {
             duration: 250,
           })
         ),
-        withTiming(0, {
-          duration: 250,
-        })
+        withDelay(
+          250 * (index + 1),
+          withTiming(0, {
+            duration: 250,
+          })
+        )
       )
     }
   }, [letter, matchStatus])
@@ -169,8 +172,8 @@ const LetterPlaceholder = ({guess, letter, index}: LetterPlaceholderProps) => {
           backgroundColor: matchColor(),
           borderWidth: guess.isComplete ? 0 : 1,
         },
-        bgStyle,
         animatedStyles,
+        bgStyle,
       ]}
     >
       <Text
