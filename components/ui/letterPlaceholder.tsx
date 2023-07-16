@@ -11,7 +11,6 @@ import Animated, {
   withSequence,
   withTiming,
 } from 'react-native-reanimated'
-import interpolateColorBugFix from '@/utils/interpolateColorFix'
 import {SIZE, colors} from '@/utils/constants'
 
 interface LetterPlaceholderProps {

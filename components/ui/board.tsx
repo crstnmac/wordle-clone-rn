@@ -28,6 +28,15 @@ const Board = ({solution, handleGuess, resetGame}: BoardProps) => {
         },
       ]}
     >
+      <View style={styles.topBarContainer}>
+        <TouchableOpacity
+          style={styles.resetButton}
+          onPress={() => resetGame()}
+        >
+          <Text style={styles.resetButtonText}>New Game</Text>
+        </TouchableOpacity>
+      </View>
+
       <View style={styles.blocksContainer}>
         {guesses.map((guess, idx) => (
           <View key={idx} style={styles.squareBlock}>
@@ -48,12 +57,6 @@ const Board = ({solution, handleGuess, resetGame}: BoardProps) => {
         {gameEnded && (
           <>
             <Text style={styles.solutionText}>Solution: {solution}</Text>
-            <TouchableOpacity
-              style={styles.resetButton}
-              onPress={() => resetGame()}
-            >
-              <Text style={styles.resetButtonText}>New Game</Text>
-            </TouchableOpacity>
           </>
         )}
         {wrongGuessShake && (
@@ -88,6 +91,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-evenly',
     marginBottom: 10,
+  },
+  topBarContainer: {
+    width: SIZE,
+    height: 100,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    paddingHorizontal: 30,
   },
   blocksContainer: {
     width: SIZE * 0.9,

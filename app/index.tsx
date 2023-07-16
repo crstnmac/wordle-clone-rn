@@ -5,6 +5,7 @@ import Board from '@/components/ui/board'
 import {guess, matchStatus, useGameStore} from '@/store/useGameStore'
 import {useEffect} from 'react'
 import {answers, words} from '@/words'
+import {colors} from '@/utils/constants'
 
 export default function Index() {
   const {
@@ -228,8 +229,11 @@ export default function Index() {
   if (!gameStarted) {
     return (
       <View style={styles.startGameScreen}>
-        <TouchableOpacity onPress={() => resetGame()}>
-          <Text>Start Game</Text>
+        <TouchableOpacity
+          onPress={() => resetGame()}
+          style={styles.startGameButton}
+        >
+          <Text style={styles.startGameButtonText}>Start Game</Text>
         </TouchableOpacity>
       </View>
     )
@@ -256,5 +260,23 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: colors.bg,
+  },
+  startGameButton: {
+    backgroundColor: colors.correct,
+    padding: 10,
+    borderRadius: 15,
+    shadowColor: colors.bg,
+    elevation: 5,
+    paddingHorizontal: 20,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+  },
+  startGameButtonText: {
+    color: colors.white,
+    fontSize: 20,
+    fontWeight: 'bold',
   },
 })

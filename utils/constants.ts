@@ -1,7 +1,6 @@
 import type { guess } from "@/store/useGameStore";
 import { Dimensions } from "react-native";
 
-
 export const {
   width: SIZE,
   height: HEIGHT,
@@ -15,7 +14,6 @@ export const colors = {
   white: '#ffffff',
   bg: '#121212',
 }
-
 
 export const initalGuesses: guess[] = [
   {
